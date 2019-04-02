@@ -7,7 +7,7 @@
 
     "author_name"   "Not me"
     "author_email"  ""
-    "author_url"    "https://github.com/FPtje/DarkRP"
+    "author_url"    "https://github.com/FPtje/DarkRP && https://github.com/TheMrFailz/openoceanrp"
 
     "icon"  ""
     "info"  ""
