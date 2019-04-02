@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/pots/fishnet_generic"
+	"$surfaceprop" "Chainlink"
+	"$nolod" 1
+	"$translucent" 1
+}

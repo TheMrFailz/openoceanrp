@@ -1,0 +1,15 @@
+"darkrp"
+{
+	"base"		"darkrp"
+    "title"  "OpenOceanRP"
+    "version"   "0.0.1"
+    "menusystem"	"1"
+
+    "author_name"   "Not me"
+    "author_email"  ""
+    "author_url"    "https://github.com/FPtje/DarkRP"
+
+    "icon"  ""
+    "info"  ""
+    "hide"  "0"
+}
