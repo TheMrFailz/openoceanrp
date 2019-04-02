@@ -14,6 +14,7 @@ include("fishfile.lua")
 include("npcspawn.lua")
 include("smuggling.lua")
 include("boatsales.lua")
+include("daycycle.lua")
 
 AddCSLuaFile("fishmarketui.lua")
 AddCSLuaFile("fishpotui.lua")
@@ -29,6 +30,9 @@ local testvar = 0
 local raisedelay = 120
 local raisedelaytime = 0
 local raisemount = 0.5
+
+
+
 
 -- Net library caching
 util.AddNetworkString("openfishpot")
@@ -111,8 +115,6 @@ function lowermarketval(fishint, quantity)
 	end
 	
 end
-
--- misc functions
 
 function transfercontents(pot)
 	
