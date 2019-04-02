@@ -1,10 +1,5 @@
 -- This is where you set where you want your NPCs to spawn.
 
--- Fish dealer
-local fishpos = Vector(-9944.103516, 13818.609375, 0.320469)
-local fishang = Angle(4.290401, -43.788239, 0.000000)
-local fishname = "Fish Market"
-
 --[[
 	Format: class, name, position, angle
 	Protip: Subtract 64 units from the Z of a getpos return (command) to get their feet on the ground.
