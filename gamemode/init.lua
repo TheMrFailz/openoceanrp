@@ -197,19 +197,13 @@ concommand.Add("skyboxtest", function(ply, cmd, args)
 
 	if sunthing == false then
 		sunthing = true
-		for i = 97, 121 do
-			engine.LightStyle(0, "a")
-			
-		end
+		engine.LightStyle(0, "a")
 		net.Start("skyboxupdatething")
 		net.Broadcast()
 		
 	else
 		sunthing = false
-		for i = 0, 32 do
-			engine.LightStyle(0, "m")
-			
-		end
+		engine.LightStyle(0, "m")
 		net.Start("skyboxupdatething")
 		net.Broadcast()
 	end
