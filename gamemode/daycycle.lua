@@ -53,12 +53,12 @@ function initdaycycle()
 		daystart = CurTime()
 
 		sunpointer = ents.Create("edit_sun")
-		sunpointer:SetPos(Vector(-13783.867188, 12592.582031, 56.031250))
+		sunpointer:SetPos(Vector(4192.000000, 11184.000000, 14924.000000))
 		sunpointer:SetAngles(Angle(0,0,0))
 		sunpointer:Spawn()
 
 		skysetter = ents.Create("edit_sky")
-		skysetter:SetPos(Vector(-13783.968750, 12487.309570, 56.031250))
+		skysetter:SetPos(Vector(4192.000000, 11184.000000, 15624.000000))
 		skysetter:Spawn()
 		
 
@@ -66,14 +66,8 @@ function initdaycycle()
 
 end
 
-hook.Add("InitPostEntity", "initoorpdaycycle", inidaycycle)
+hook.Add("InitPostEntity", "initoorpdaycycle", initdaycycle)
 
-concommand.Add("sunpointerspawn", function(ply, cmd, args)
-
-	initdaycycle()
-
-
-end)
 
 
 local lightletter = "a"
@@ -116,8 +110,6 @@ local function customlerpskymorn(startval, endval)
 
 	end
 
-	-- engine.LightStyle(0, "a")
-	print("sunrise!: " .. lerpiter)
 
 	return currentval
 end
@@ -158,7 +150,6 @@ local function customlerpskyeve(endval, startval)
 		
 
 	end
-	print("sunset!: " .. lerpiter)
 	return currentval
 end
 
