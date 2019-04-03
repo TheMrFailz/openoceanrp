@@ -60,7 +60,9 @@ function initdaycycle()
 		skysetter = ents.Create("edit_sky")
 		skysetter:SetPos(Vector(4192.000000, 11184.000000, 15624.000000))
 		skysetter:Spawn()
-		
+		engine.LightStyle(0, "a")
+		net.Start("skyboxupdatething")
+		net.Broadcast()
 
 	end
 
