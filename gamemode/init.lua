@@ -15,6 +15,7 @@ include("npcspawn.lua")
 include("smuggling.lua")
 include("boatsales.lua")
 include("daycycle.lua")
+include("zoneregions.lua")
 
 AddCSLuaFile("fishmarketui.lua")
 AddCSLuaFile("fishpotui.lua")
