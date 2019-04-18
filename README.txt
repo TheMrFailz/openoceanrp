@@ -8,5 +8,5 @@ READTHISREADTHISREADTHISREADTHISREADTHIS
 
 PS: If you edit this DarkRP derivative then you'll need to share it as per license.
 
-Get the map here or experience pain and suffering: <LINKNOTAVAILABLEYET>
+Get the map here or experience pain and suffering: https://github.com/TheMrFailz/AwfulMapRepository/tree/master/gamemode%20related/oorp
 Note the map is not under the same license as the gamemode.
