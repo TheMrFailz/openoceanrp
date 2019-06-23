@@ -21,7 +21,7 @@
 -- Programmers note: Please keep crabs at the end of the fisht able. Also, you'll need to modify 
 -- fish nets if you add more crabs.
 
-
+ 
 fishtable = {
 
 	{"Bitterling", "models/tsbb/fishes/bitterling.mdl", 0, 100, 30, 30, 8},
@@ -64,17 +64,18 @@ crabtable = {
 function initFishTable()
 	for i = 1, table.Count(fishtable) do
 		fishtablesearch[i] = fishtable[i][1]
+		
 	end
 	
 end
 hook.Add("Initialize", "setupfishsearch", initFishTable)
+concommand.Add("fixfishtable", initFishTable)
 
 function getFishTable()
 	
 	return fishtable 
 	
 end
-
 net.Receive("FMRequestFishTable", function(len, ply)
 	local seller = net.ReadEntity()
 	

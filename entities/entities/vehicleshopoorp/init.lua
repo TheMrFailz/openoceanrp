@@ -89,6 +89,7 @@ function ENT:SpawnPurchase(ply, vehicleint)
 		newpurchase:Spawn()
 		
 		newpurchase:Activate()
+		newpurchase:CPPISetOwner(ply)
 		DarkRP.notify(ply, 0, 3, "Vehicle spawned.")
 	end
 	--newpurchase:CPPISetOwner(ply)

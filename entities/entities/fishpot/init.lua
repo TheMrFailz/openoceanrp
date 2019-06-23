@@ -183,7 +183,7 @@ function ENT:CountFish()
 	return fishtot
 end
 
-
+ 
 function ENT:Think()
 	if self.deployed == true then
 		if self.baited == true && self:WaterLevel() >= 1 then

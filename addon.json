@@ -1,0 +1,6 @@
+{
+"title" : "OORP Content: Gamemode files",
+"type" : "gamemode",
+"tags" : ["scenic","water"],
+"ignore" : ["*.psd", "*.vcproj", "*.svn*"]
+}
