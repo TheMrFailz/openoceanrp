@@ -7,11 +7,13 @@ function ENT:Draw()
 	self:DrawModel()
 	local name2use = ""
 
-	if self:CPPIGetOwner():Nick() == nil then
-		name2use = ""
-	else
-		name2use = self:CPPIGetOwner():Nick()
-	end 
+	if self:CPPIGetOwner():IsValid() && self:CPPIGetOwner() != nil then
+		if self:CPPIGetOwner():Nick() == nil then
+			name2use = ""
+		else
+			name2use = self:CPPIGetOwner():Nick()
+		end 
+	end
 	
 	local nametagpos = self:LocalToWorld(Vector(-2,0,19))
 	local nametagang = self:LocalToWorldAngles(Angle(0,90,0)) 
