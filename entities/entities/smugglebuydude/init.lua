@@ -24,7 +24,7 @@ function ENT:Initialize()
 	self:PhysicsInit( SOLID_OBB )     
 	self:SetSolid( SOLID_OBB )         
 	self:SetUseType(SIMPLE_USE)
-	
+	self:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
 
 	-- Make Setup Fysixs
     local phys = self:GetPhysicsObject()

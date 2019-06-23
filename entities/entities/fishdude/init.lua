@@ -22,7 +22,8 @@ function ENT:Initialize()
 	self:SetModel( "models/player/odessa.mdl" )
 	self:SetAnimation( PLAYER_IDLE )
 	self:PhysicsInit( SOLID_OBB )     
-	self:SetSolid( SOLID_OBB )         
+	self:SetSolid( SOLID_OBB )      
+	self:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
 	self:SetUseType(SIMPLE_USE)
 	
 
