@@ -178,7 +178,7 @@ function ENT:Think()
 						
 						
 						-- Go through the table and try to find a fish that fits in this zone. Will happen multiple times obv.
-						for i = 1, table.Count(fishtablesearch - 3) do
+						for i = 1, table.Count(fishtablesearch) - 3 do
 							if checkingdepth <= fishtable[i][4] && checkingdepth >= fishtable[i][3] then
 								-- Insert it's name into the potential fish list.
 								table.insert(potentialfish, fishtablesearch[i])
