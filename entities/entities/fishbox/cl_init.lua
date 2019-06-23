@@ -7,7 +7,7 @@ function ENT:Draw()
 	self:DrawModel()
 	local name2use = ""
 
-	if self:CPPIGetOwner():IsValid() && self:CPPIGetOwner() != nil then
+	if self:CPPIGetOwner() != nil then
 		if self:CPPIGetOwner():Nick() == nil then
 			name2use = ""
 		else
