@@ -266,7 +266,7 @@ end
 
 -- Open me (again!)
 
-net.Receive("FMOpenGUI", function(len, ply)
+net.Receive("PMOpenGUI", function(len, ply)
 	local seller = net.ReadEntity()
 	plantmarketv2(seller)
 	
