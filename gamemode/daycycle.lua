@@ -47,6 +47,12 @@ local skysetter
 	
 ]]
 
+-- time setter func
+function settimeday(args)
+	daystart = CurTime() - args[1]
+	print("oof")
+end
+concommand.Add("setdaytimeto", settimeday)
 
 function initdaycycle()
 	if customdaynight == true then
