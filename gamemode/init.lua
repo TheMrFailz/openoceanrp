@@ -11,6 +11,7 @@ GM.DarkRP = BaseClass
 
 -- Include files --
 include("fishfile.lua")
+include("plantfile.lua")
 include("npcspawn.lua")
 include("smuggling.lua")
 include("boatsales.lua")
@@ -18,6 +19,8 @@ include("daycycle.lua")
 include("zoneregions.lua")
 
 AddCSLuaFile("fishmarketui.lua")
+AddCSLuaFile("plantmarketui.lua")
+AddCSLuaFile("plantboxui.lua")
 AddCSLuaFile("fishpotui.lua")
 AddCSLuaFile("fishboxui.lua")
 AddCSLuaFile("crabpotui.lua")
@@ -28,7 +31,7 @@ AddCSLuaFile("boatgui.lua")
 local enablemaptele = false
 local sunthing = false
 local testvar = 0
-local raisedelay = 120
+local raisedelay = 120 -- Seconds between fish market price increases.
 local raisedelaytime = 0
 local raisemount = 0.5
 
@@ -83,7 +86,20 @@ util.AddNetworkString("VSOpenGUI")
 util.AddNetworkString("VSBuyRequest")
 util.AddNetworkString("VSPurchaseRequest")
 
+-- Plant Market / Box UI
+util.AddNetworkString("PMRequestPlantTable")
+util.AddNetworkString("PMSendPlantTable")
+util.AddNetworkString("BXRequestPlantTable")
+util.AddNetworkString("BXSendPlantTable")
+util.AddNetworkString("openplantpot")
+util.AddNetworkString("openplantbox")
+util.AddNetworkString("transplantpot")
+util.AddNetworkString("trashplantbox")
+util.AddNetworkString("sellplantbox")
+util.AddNetworkString("PLBXOpenGUI")
+util.AddNetworkString("PTDumpplant")
 
+-- Make the sky work.
 util.AddNetworkString("skyboxupdatething")
 
 -- Natural raise of market value.
@@ -93,7 +109,7 @@ function raisemarketval()
 		raisedelaytime = CurTime() + raisedelay
 		for i = 1, table.Count(fishtable) do
 			
-			if fishtable[i][6] < fishtable[i][5] * 1.25 && fishtable[i][6] + raisemount < fishtable[i][5] * 1.35 then
+			if fishtable[i][6] < fishtable[i][5] * 1.35 && fishtable[i][6] + raisemount <= fishtable[i][5] * 1.35 then
 				fishtable[i][6] = math.Round(fishtable[i][6] + raisemount)
 				
 			end
@@ -104,6 +120,12 @@ end
 
 hook.Add("Think", "marketvalueraiser", raisemarketval)
 
+-- emergency wac removal command:
+function removeallwac()
+	for k,v in pairs(ents.FindByClass("wac_*")) do v:Remove() end
+end
+concommand.Add("removetehwac", removeallwac)
+
 -- Lower the market value of a fish.
 function lowermarketval(fishint, quantity)
 	-- Change this value to a decimal of your choice to lower fish value. 0.1 is $1 every ten fish.
@@ -111,7 +133,11 @@ function lowermarketval(fishint, quantity)
 	-- Cannot go below 25% of the original value.
 	local devaluemult = 0.1
 
-	if fishtable[fishint][6] > fishtable[fishint][5] * 0.25 && fishtable[fishint][6] - (quantity * devaluemult) > fishtable[fishint][5] * 0.25 then
+
+	-- If our current fish price is greater than 25% of our original value,
+	-- and the current value minus the total market value loss we're about to experience
+	-- is greater than %25 the original price then take the value out.
+	if fishtable[fishint][6] > fishtable[fishint][5] * 0.25 && fishtable[fishint][6] - (quantity * devaluemult) >= fishtable[fishint][5] * 0.25 then
 		fishtable[fishint][6] = math.Round(fishtable[fishint][6] - (quantity * devaluemult))
 	end
 	
