@@ -98,6 +98,7 @@ util.AddNetworkString("trashplantbox")
 util.AddNetworkString("sellplantbox")
 util.AddNetworkString("PLBXOpenGUI")
 util.AddNetworkString("PTDumpplant")
+util.AddNetworkString("PMOpenGUI")
 
 -- Make the sky work.
 util.AddNetworkString("skyboxupdatething")
